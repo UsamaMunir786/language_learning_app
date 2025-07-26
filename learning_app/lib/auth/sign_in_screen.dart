@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:learning_app/auth/sign_up.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -166,7 +167,9 @@ class _SignInScreenState extends State<SignInScreen> {
                         height: 40,
                       ),
 
-                      TextButton(onPressed: (){}, 
+                      TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+                      }, 
                       child: Text("Don't have an Account Please! Sign UP ",
                       style: TextStyle(color: Colors.black54),
                       ),
