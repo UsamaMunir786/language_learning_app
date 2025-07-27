@@ -164,7 +164,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
 
                       SizedBox(
-                        height: 40,
+                        height: 40
                       ),
 
                       TextButton(onPressed: (){

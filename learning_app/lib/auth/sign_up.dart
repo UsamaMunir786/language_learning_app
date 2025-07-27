@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_app/auth/sign_in_screen.dart';
+import 'package:learning_app/screen/level_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -56,6 +57,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             }
           );
         }
+
+       Navigator.push(context, MaterialPageRoute(builder: (context)=>LevelScreen()));
+
     } on FirebaseException catch (e){
       setState(() {
         errorMessage = e.message ?? 'An error occurred';
@@ -129,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           prefixIcon: Icon(Icons.email)
                         ),
                         validator: (v) => 
-                        v == null || !v.contains('@') ? 'enter a valid email' : '',
+                        v == null || !v.contains('@') ? 'enter a valid email' : null,
                       ),
                       SizedBox(
                         height: 20,
