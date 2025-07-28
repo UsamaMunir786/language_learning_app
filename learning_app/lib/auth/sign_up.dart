@@ -20,6 +20,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   bool isLoadingc=false;
   String errorMessage = '';
+  
 
   Future<void> signUP() async{
     if(!_formKey.currentState!.validate()) return;
@@ -48,7 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         //clone level for the useer
         final levelSnapshot = await FirebaseFirestore.instance.collection('levels').get();
         for(final doc in levelSnapshot.docs){
-          await FirebaseFirestore.instance.collection('users').doc(uid).collection('levels').doc(uid).set(
+          await FirebaseFirestore.instance.collection('users').doc(uid).collection('levels').doc(doc.id).set(
             {
               'isUnlocked': doc['levelNumber'] == 1,
              'levelNumber': doc['levelNumber'],
@@ -91,6 +92,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: SafeArea(
             child: Center(
               child: SingleChildScrollView(
+                
                 padding: EdgeInsets.symmetric(
                   horizontal: 24,
                   vertical: 40
@@ -218,6 +220,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
             )
             ),
         ),
+        
+
     );
   }
 }

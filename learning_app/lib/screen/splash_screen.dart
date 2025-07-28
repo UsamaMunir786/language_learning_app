@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_app/auth/sign_in_screen.dart';
+import 'package:learning_app/screen/level_screen.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,7 +27,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if(user != null){
       // already signin
-
+           Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LevelScreen()),
+    );
     }
     else{
       // not signin

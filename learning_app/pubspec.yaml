@@ -39,6 +39,8 @@ dependencies:
   cloud_firestore: ^5.6.12
   firebase_core: ^3.15.2
   firebase_auth: ^5.7.0
+  google_mlkit_translation: ^0.13.0
+  just_audio: ^0.10.4
   
 
 

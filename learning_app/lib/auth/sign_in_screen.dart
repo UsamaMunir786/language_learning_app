@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:learning_app/auth/sign_up.dart';
+import 'package:learning_app/screen/level_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -28,6 +29,11 @@ class _SignInScreenState extends State<SignInScreen> {
         email: emailController.text.trim(), 
         password: passwordController.text.trim()
         );
+
+      Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LevelScreen()),
+    );
     } on FirebaseAuthException catch(e){
       setState(() {
         errorMessage = e.message ?? 'Sign in faield';
